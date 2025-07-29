@@ -28,7 +28,7 @@ public class EmployeeController {
         return empService.getEmployeeById(id);
     }
 
-    //    http://localhost:8080/api/emp/101
+    //    http://localhost:8080/api/emp
     @PostMapping("emp")
     public Employee addEmployee(@RequestBody Employee employee) {
         return empService.addEmployee(employee);
