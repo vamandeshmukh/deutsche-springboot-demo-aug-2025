@@ -22,6 +22,7 @@ public class EmployeeService {
     }
 
     public Employee getEmployeeById(Integer id) {
+        System.out.println(id);
         // write your logic
         return tempEmpList.get(0);
     }
