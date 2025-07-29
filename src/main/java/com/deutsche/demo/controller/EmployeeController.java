@@ -2,12 +2,8 @@ package com.deutsche.demo.controller;
 
 import com.deutsche.demo.model.Employee;
 import com.deutsche.demo.service.EmployeeService;
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,6 +28,11 @@ public class EmployeeController {
         return empService.getEmployeeById(id);
     }
 
+    //    http://localhost:8080/api/emp/101
+    @PostMapping("emp")
+    public Employee addEmployee(@RequestBody Employee employee) {
+        return empService.addEmployee(employee);
+    }
 
 //    public Object addEmployee() {
 //        return null;

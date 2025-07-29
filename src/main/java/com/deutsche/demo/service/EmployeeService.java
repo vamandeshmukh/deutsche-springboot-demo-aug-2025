@@ -26,4 +26,10 @@ public class EmployeeService {
         // write your logic
         return tempEmpList.get(0);
     }
+
+    public Employee addEmployee(Employee employee) {
+        System.out.println(employee.toString());
+        // write your logic
+        return employee;
+    }
 }
