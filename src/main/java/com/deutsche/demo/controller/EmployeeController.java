@@ -21,11 +21,11 @@ public class EmployeeController {
         return empService.getAllEmployees();
     }
 
-//    @GetMapping("emp")
-//    public Object getEmployeeById() {
-//        Integer id = 101;
-//        return null;
-//    }
+    @GetMapping("emp")
+public Employee getEmployeeById(Integer id) {
+    return empService.getEmployeeById(id);
+}
+
 
 //    public Object addEmployee() {
 //        return null;

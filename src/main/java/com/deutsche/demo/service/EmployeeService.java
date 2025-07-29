@@ -21,4 +21,8 @@ public class EmployeeService {
         return tempEmpList;
     }
 
+    public Employee getEmployeeById(Integer id) {
+        // write your logic
+        return tempEmpList.get(0);
+    }
 }
