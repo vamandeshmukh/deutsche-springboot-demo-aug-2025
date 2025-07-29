@@ -1,6 +1,8 @@
 package com.deutsche.demo.controller;
 
 import com.deutsche.demo.model.Employee;
+import com.deutsche.demo.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,11 +11,14 @@ import java.util.List;
 @RestController
 public class EmployeeController {
 
-    // empList
+//    private EmployeeService empService = new EmployeeService();
+
+    @Autowired
+    private EmployeeService empService;
 
     @GetMapping("emp")
     public List<Employee> getAllEmployees() {
-        return null;
+        return empService.getAllEmployees();
     }
 
 //    @GetMapping("emp")
