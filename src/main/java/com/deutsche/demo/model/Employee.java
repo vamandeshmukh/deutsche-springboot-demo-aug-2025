@@ -1,7 +1,14 @@
 package com.deutsche.demo.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity // mandotory
+@Table(name = "employees") // optional, but conditional
 public class Employee {
 
+    @Id // mandotory
     private Integer id;
     private String name;
     private Double salary;
