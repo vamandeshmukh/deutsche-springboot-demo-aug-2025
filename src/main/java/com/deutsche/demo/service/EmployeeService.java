@@ -24,6 +24,14 @@ public class EmployeeService {
     public Employee addEmployee(Employee employee) {
         return empRepository.save(employee);
     }
+    public Employee updateEmployee(Employee employee) {
+        return empRepository.save(employee);
+    }
+    public Employee deleteEmployee(Integer id) {
+        empRepository.deleteById(id);
+//        return the deleted employee object;
+        return null;
+    }
 }
 
 
