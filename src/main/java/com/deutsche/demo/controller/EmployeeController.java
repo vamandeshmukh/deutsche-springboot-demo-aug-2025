@@ -5,6 +5,7 @@ import com.deutsche.demo.service.EmployeeService;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,7 +28,7 @@ public class EmployeeController {
 
     //    http://localhost:8080/api/emp/101
     @GetMapping("emp/{id}")
-    public Employee getEmployeeById(@PathParam("id") Integer id) {
+    public Employee getEmployeeById(@PathVariable( name = "id") Integer id) {
         return empService.getEmployeeById(id);
     }
 
