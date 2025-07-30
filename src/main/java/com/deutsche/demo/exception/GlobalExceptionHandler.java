@@ -1,6 +1,7 @@
 package com.deutsche.demo.exception;
 
 import com.deutsche.demo.model.Employee;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
@@ -9,9 +10,10 @@ public class GlobalExceptionHandler {
 
     public ResponseEntity<Employee> handleEmployeeNotFoundException(EmployeeNotFoundException e) {
         return ResponseEntity
-                .notFound()
+                .status(HttpStatus.NOT_FOUND)
                 .header("message", e.getMessage())
-                .body(null);
+                .body(null);  // ✔ Works fine
+
     }
 
 
