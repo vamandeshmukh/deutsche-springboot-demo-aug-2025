@@ -1,4 +1,5 @@
 package com.deutsche.demo.security;
 
-public class SecurityConfig {
+public class SecurityConfig  {
+
 }
