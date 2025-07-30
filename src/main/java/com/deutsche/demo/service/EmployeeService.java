@@ -39,6 +39,11 @@ public class EmployeeService {
             throw new EmployeeNotFoundException(id);
     }
 
+    public List<Employee> getEmployeesByName(String name) {
+        LOG.info("get employees by anme " + name);
+        return employeeRepository.findByNameIgnoreCase(name);
+    }
+
     public Employee addEmployee(Employee employee) {
 //        write your logic
         return employeeRepository.save(employee);
