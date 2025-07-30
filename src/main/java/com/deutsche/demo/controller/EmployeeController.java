@@ -36,21 +36,33 @@ public class EmployeeController {
         return employeeService.getAllEmployees();
     }
 
-    //    http://localhost:8090/api/v1/employees/101
+//    //    http://localhost:8090/api/v1/employees/101
+//    @GetMapping("/{id}")
+//    public Employee getEmployeeById(@PathVariable(name = "id") Integer id) {
+//        return employeeService.getEmployeeById(id);
+//    }
+
+        //    http://localhost:8090/api/v1/employees/101
     @GetMapping("/{id}")
-    public Employee getEmployeeById(@PathVariable(name = "id") Integer id) {
-        return employeeService.getEmployeeById(id);
+    public ResponseEntity<Employee> getEmployeeById(@PathVariable Integer id) {
+        return ResponseEntity
+                .ok()
+                .header("message", "Employee with the id " + id + " fetched successfully.")
+                .body(employeeService.getEmployeeById(id));
     }
 
 //    //    http://localhost:8090/api/v1/employees/101
 //    @GetMapping("/{id}")
-//    public ResponseEntity<Employee> getEmployeeById(@PathVariable Integer id) {
-//        return ResponseEntity
-//                .ok()
-//                .header("message", "Employee with the id " + id + " fetched successfully.")
-//                .body(employeeService.getEmployeeById(id));
+//    public ResponseEntity<Employee> getEmployeeById(@PathVariable(name = "id") Integer id) {
+//        Employee employee =  employeeService.getEmployeeById(id);
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.add("message", "Employee with the id " + id + " returned successfully.");
+//        HttpStatus status = HttpStatus.OK;
+//        ResponseEntity<Employee> response = new ResponseEntity<>(employee, headers, status);
+//        return response;
 //    }
-    
+
+
     //    http://localhost:8090/api/v1/employees
     @PostMapping
     public Employee addEmployee(@Valid @RequestBody Employee employee) {
