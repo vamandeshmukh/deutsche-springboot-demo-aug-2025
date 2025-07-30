@@ -16,8 +16,9 @@ import java.util.List;
 // they should return ResponseEntity objects
 // refactor the code accordingly
 // LOG as applicable
-// access ui here -
-//http://localhost:8090/api/v1/swagger-ui/index.html
+
+// access swagger-ui here -
+// http://localhost:8090/api/v1/swagger-ui/index.html
 
 @RestController
 @RequestMapping("employees")
