@@ -1,15 +1,29 @@
 package com.deutsche.demo.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 
-@Entity // mandotory
+@Entity
 @Table(name = "employees") // optional, but conditional
 public class Employee {
 
-    @Id // mandotory
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // PK values
+    @Column(name = "id")
+//    @Column(name = "employee_id")
     private Integer id;
+
+    @NotNull(message = "name should be provided")
+    @NotBlank(message = "name can not be empty")
+    @Size(min = 2, max = 50, message = "Name should be between 2 and 50 characters.")
+    @Column(name = "name")
     private String name;
+
+    @Positive(message = "Salary should be more than 0.")
+    @Column(name = "salary")
     private Double salary;
 
     public Employee() {

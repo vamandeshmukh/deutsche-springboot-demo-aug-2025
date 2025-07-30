@@ -38,7 +38,7 @@ public class EmployeeService {
     }
 
     public Employee updateEmployee(Employee employee) {
-//        write your logic
+//        write your logic for updating records
         return employeeRepository.save(employee);
     }
 
