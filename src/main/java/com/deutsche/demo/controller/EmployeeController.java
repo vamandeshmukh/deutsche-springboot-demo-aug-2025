@@ -2,6 +2,7 @@ package com.deutsche.demo.controller;
 
 import com.deutsche.demo.model.Employee;
 import com.deutsche.demo.service.EmployeeService;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,7 @@ public class EmployeeController {
 
     //    http://localhost:8090/api/v1/employees
     @PostMapping
-    public Employee addEmployee(@RequestBody Employee employee) {
+    public Employee addEmployee(@Valid @RequestBody Employee employee) {
         return employeeService.addEmployee(employee);
     }
 
