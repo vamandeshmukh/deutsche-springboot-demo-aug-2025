@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 // Write business logic in this class
 // getEmployeeById() - What if the employee does not exist?
@@ -28,8 +29,11 @@ public class EmployeeService {
     }
 
     public Employee getEmployeeById(Integer id) {
-//        write your logic
-        return employeeRepository.findById(id).get();
+        Optional<Employee> employeeOptional = employeeRepository.findById(id);
+        if (employeeOptional.isPresent())
+            return employeeOptional.get();
+        else
+            throw new RuntimeException("Employee with the id " + id + " not found!");
     }
 
     public Employee addEmployee(Employee employee) {
