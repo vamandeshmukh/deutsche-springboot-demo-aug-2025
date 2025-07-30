@@ -26,10 +26,12 @@ public class EmployeeService {
     EmployeeRepository employeeRepository;
 
     public List<Employee> getAllEmployees() {
+        LOG.info("get all employees");
         return employeeRepository.findAll();
     }
 
     public Employee getEmployeeById(Integer id) {
+        LOG.info("Employee with the id " + id);
         Optional<Employee> employeeOptional = employeeRepository.findById(id);
         if (employeeOptional.isPresent())
             return employeeOptional.get();
