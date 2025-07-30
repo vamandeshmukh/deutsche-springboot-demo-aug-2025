@@ -1,14 +1,13 @@
 package com.deutsche.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity // mandotory
 @Table(name = "employees") // optional, but conditional
 public class Employee {
 
     @Id // mandotory
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private Double salary;
@@ -18,6 +17,7 @@ public class Employee {
     }
 
     public Employee(Integer id, String name, Double salary) {
+        System.out.println("asdf");
         this.id = id;
         this.name = name;
         this.salary = salary;
