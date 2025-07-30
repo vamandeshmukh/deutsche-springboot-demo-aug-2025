@@ -11,19 +11,11 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(EmployeeNotFoundException.class)
     public ResponseEntity<Employee> handleEmployeeNotFoundException(EmployeeNotFoundException e) {
-//        return ResponseEntity
-//                .notFound()
-//                .header("message", e.getMessage())
-//                .body(null);
-
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
                 .header("message", e.getMessage())
                 .body(null);
-
-
     }
-
 
 
 }
