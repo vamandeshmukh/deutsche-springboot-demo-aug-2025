@@ -1,5 +1,6 @@
 package com.deutsche.demo.service;
 
+import com.deutsche.demo.exception.EmployeeNotFoundException;
 import com.deutsche.demo.model.Employee;
 import com.deutsche.demo.repository.EmployeeRepository;
 import org.slf4j.Logger;
@@ -33,7 +34,7 @@ public class EmployeeService {
         if (employeeOptional.isPresent())
             return employeeOptional.get();
         else
-            throw new RuntimeException("Employee with the id " + id + " not found!");
+            throw new EmployeeNotFoundException(id);
     }
 
     public Employee addEmployee(Employee employee) {
