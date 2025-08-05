@@ -31,7 +31,7 @@ public class EmployeeController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable Integer id) {
-        LOG.info("Employee id: " + id.toString());
+        LOG.info(id.toString());
         return ResponseEntity
                 .ok()
                 .header("message", "Employee with the id " + id + " fetched successfully.")
@@ -40,16 +40,19 @@ public class EmployeeController {
 
     @PostMapping
     public Employee addEmployee(@Valid @RequestBody Employee employee) {
+        LOG.info(employee.getId().toString());
         return employeeService.addEmployee(employee);
     }
 
     @PutMapping
     public Employee updateEmployee(@RequestBody Employee employee) {
+        LOG.info(employee.getId().toString());
         return employeeService.updateEmployee(employee);
     }
 
     @DeleteMapping("/{id}")
     public Employee deleteEmployee(@PathVariable(name = "id") Integer id) {
+        LOG.info(id.toString());
         return employeeService.deleteEmployee(id);
     }
 }

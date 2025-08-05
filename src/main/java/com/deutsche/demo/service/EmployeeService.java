@@ -39,15 +39,18 @@ public class EmployeeService {
     }
 
     public Employee addEmployee(Employee employee) {
+        LOG.info(employee.getId().toString());
         return employeeRepository.save(employee);
     }
 
     public Employee updateEmployee(Employee employee) {
+        LOG.info(employee.getId().toString());
         Employee employeeToBeUpdated = getEmployeeById(employee.getId());
         return employeeRepository.save(employee);
     }
 
     public Employee deleteEmployee(Integer id) {
+        LOG.info(id.toString());
         Employee employee = getEmployeeById(id);
         employeeRepository.deleteById(id);
         return employee;
