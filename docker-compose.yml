@@ -11,6 +11,12 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   app:
     image: vamandeshmukh/deutsche-springboot-demo:latest
@@ -29,3 +35,7 @@ services:
       SPRING_APPLICATION_NAME: deutsche-springboot-demo
       LOGGING_FILE_NAME: app.log
       MANAGEMENT_TRACING_SAMPLING_PROBABILITY: 1.0
+    restart: unless-stopped
+
+volumes:
+  db_data:
