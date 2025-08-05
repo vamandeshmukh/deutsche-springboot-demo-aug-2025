@@ -7,7 +7,7 @@ public class AppTests {
 
 	@Test
 	void testTest() {
-        assertEquals(11, 5 + 5, "Wrong maths!");
+        assertEquals(10, 5 + 5, "Wrong maths!");
 	}
 
 }
