@@ -34,7 +34,7 @@ public class EmployeeService {
     }
 
     public List<Employee> getEmployeesByName(String name) {
-        LOG.info("get employees by anme " + name);
+        LOG.info(name);
         return employeeRepository.findByNameIgnoreCase(name);
     }
 

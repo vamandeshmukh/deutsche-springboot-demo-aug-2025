@@ -39,21 +39,31 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public Employee addEmployee(@Valid @RequestBody Employee employee) {
+    public ResponseEntity<Employee> addEmployee(@Valid @RequestBody Employee employee) {
         LOG.info(employee.getId().toString());
-        return employeeService.addEmployee(employee);
+        return ResponseEntity
+                .ok()
+                .header("message", "Employee added successfully.")
+                .body(employeeService.addEmployee(employee));
     }
 
     @PutMapping
-    public Employee updateEmployee(@RequestBody Employee employee) {
+    public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee) {
         LOG.info(employee.getId().toString());
-        return employeeService.updateEmployee(employee);
+        return ResponseEntity
+                .ok()
+                .header("message", "Employee added successfully.")
+                .body(employeeService.updateEmployee(employee));
+
     }
 
     @DeleteMapping("/{id}")
-    public Employee deleteEmployee(@PathVariable(name = "id") Integer id) {
+    public ResponseEntity<Employee> deleteEmployee(@PathVariable(name = "id") Integer id) {
         LOG.info(id.toString());
-        return employeeService.deleteEmployee(id);
+        return ResponseEntity
+                .ok()
+                .header("message", "Employee with the id " + id + "  deleted successfully.")
+                .body(employeeService.deleteEmployee(id));
     }
 }
 
