@@ -3,7 +3,7 @@ FROM openjdk:17-jdk-slim
 # 2️Set the working directory inside the container
 WORKDIR /app
 # 3️Copy the built JAR file into the container
-COPY target/deutsche-springboot-demo.jar app.jar
+COPY target/*.jar app.jar
 # 4️Expose the application port
 EXPOSE 8090
 # 5️Run the application
